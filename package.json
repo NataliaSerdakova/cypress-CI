@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx cypress run --record --key 5201a1b4-9a8e-4f5f-99f5-eb819fafe648"
+    "cy:login": "cypress run --group login --ci-build-id 3 --spec cypress/e2e/login.cy.js --record --key 5201a1b4-9a8e-4f5f-99f5-eb819fafe648",
+    "cy:movies": "cypress run --group movies --ci-build-id 3 --spec cypress/e2e/movies.cy.js --record --key 5201a1b4-9a8e-4f5f-99f5-eb819fafe648",
+    "cy:title": "cypress run --group title --ci-build-id 3 --spec cypress/e2e/title.cy.js --record --key 5201a1b4-9a8e-4f5f-99f5-eb819fafe648",
+    "cy:parallel": "concurrently \"npm run cy:login\" \"npm run cy:title\" \npm run cy:movies\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cypress": "^15.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }
